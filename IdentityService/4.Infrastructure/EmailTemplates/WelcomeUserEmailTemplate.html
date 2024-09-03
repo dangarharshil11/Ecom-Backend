@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Ecom!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .details {
+            margin-bottom: 20px;
+        }
+
+            .details p {
+                margin: 5px 0;
+            }
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+
+            .footer p {
+                margin: 5px 0;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Ecom, {FirstName}!</h1>
+        <p>Dear {FirstName} {LastName},</p>
+        <p>Thank you for registering with Ecom! We are excited to have you join our community of customers. Here are your account details:</p>
+
+        <div class="details">
+            <h2>Your Account Details</h2>
+            <p><strong>Full Name:</strong> {FirstName} {LastName}</p>
+            <p><strong>Email:</strong> {Email}</p>
+            <p><strong>Phone Number:</strong> {PhoneNumber}</p>
+            <pre><strong>Address:</strong><br /> {Address}</pre>
+        </div>
+
+        <p>To get started, you can log in to your account <a href="{LoginUrl}/auth/login">here</a>. If you have any questions or need assistance, please feel free to contact our support team.</p>
+
+        <div class="footer">
+            <p>Welcome once again to Ecom! We look forward to serving you.</p>
+            <p>This email was generated automatically. Please do not reply to this message.</p>
+            <p>Best regards,<br>Ecom Team</p>
+        </div>
+    </div>
+</body>
+</html>

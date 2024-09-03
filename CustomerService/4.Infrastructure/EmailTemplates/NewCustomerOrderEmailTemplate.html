@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        h2 {
+            color: #666666;
+        }
+
+        .order-info, .user-info, .order-details {
+            margin-bottom: 20px;
+        }
+
+            .order-info p, .user-info p, .order-details p {
+                margin: 8px 0;
+                color: #555555;
+            }
+
+            .order-details table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 10px;
+            }
+
+            .order-details th, .order-details td {
+                padding: 10px;
+                border: 1px solid #dddddd;
+                text-align: left;
+            }
+
+            .order-details th {
+                background-color: #f2f2f2;
+            }
+
+        .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Confirmation</h1>
+        <p>Dear {FirstName} {LastName},</p>
+        <p>Thank you for your purchase! We are pleased to confirm that your payment was successful and your order has been placed.</p>
+
+        <div class="order-info">
+            <h2>Order Information</h2>
+            <p><strong>Order ID:</strong> {OrderId}</p>
+            <p><strong>Order Amount:</strong> {OrderAmount}</p>
+            <p><strong>Order Time:</strong> {OrderTime}</p>
+            <p><strong>Status:</strong> {Status}</p>
+            <p><strong>Note:</strong> {Note}</p>
+            <p><strong>Payment Intent ID:</strong> {PaymentIntentId}</p>
+        </div>
+
+        <div class="user-info">
+            <h2>User Information</h2>
+            <p><strong>Email:</strong> {Email}</p>
+            <p><strong>Name:</strong> {FirstName} {LastName}</p>
+            <p><strong>Address:</strong> {Address}</p>
+            <p><strong>Phone Number:</strong> {PhoneNumber}</p>
+        </div>
+
+        <div class="order-details">
+            <h2>Order Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Count</th>
+                        <th>Unit Price</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#OrderDetails}
+                    
+                    {/OrderDetails}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="footer">
+            <p>If you have any questions, feel free to reply to this email or contact our support team.</p>
+            <p>Thank you for shopping with us!</p>
+        </div>
+    </div>
+</body>
+</html>

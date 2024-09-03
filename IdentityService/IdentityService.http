@@ -1,0 +1,6 @@
+@IdentityService_HostAddress = http://localhost:5036
+
+GET {{IdentityService_HostAddress}}/swagger/index.html
+Accept: application/json
+
+###

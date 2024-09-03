@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Stock Low Notification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .details {
+            margin-bottom: 20px;
+        }
+
+            .details p {
+                margin: 5px 0;
+            }
+
+        .footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+        }
+
+            .footer p {
+                margin: 5px 0;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Level Alert</h1>
+        <p>Dear Admin,</p>
+        <p>This is a notification that the stock level for the following product is low. Please review the details and take action to reorder the product.</p>
+
+        <div class="details">
+            <h2>Product Details</h2>
+            <p><strong>Product Name:</strong> {ProductName}</p>
+            <p><strong>Product ID:</strong> {ProductId}</p>
+            <p><strong>Current Stock:</strong> {CurrentStockItems}</p>
+            <p><strong>Required Stock:</strong> {ThresholdAmount}</p>
+            <p><strong>Last Order Date:</strong> {LastOrderDate}</p>
+        </div>
+
+        <div class="details">
+            <h2>Supplier Details</h2>
+            <p><strong>Supplier Name:</strong> {SupplierName}</p>
+            <p><strong>Supplier Email:</strong> {SupplierEmail}</p>
+        </div>
+
+        <div class="footer">
+            <p>This email was generated automatically by the inventory system. Please do not reply to this message.</p>
+            <p>If you have any questions or need further assistance, please contact the Harshil Dangar.</p>
+        </div>
+    </div>
+</body>
+</html>
