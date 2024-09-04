@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "identityservice",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger/index.html",
+      "serviceActions": {
+        "customerservice": "StartDebugging",
+        "identityservice": "StartDebugging",
+        "productservice": "StartDebugging",
+        "customerdb": "StartWithoutDebugging",
+        "identitydb": "StartWithoutDebugging",
+        "productdb": "StartWithoutDebugging"
+      }
+    }
+  }
+}

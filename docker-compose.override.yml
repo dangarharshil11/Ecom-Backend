@@ -1,0 +1,91 @@
+version: '3.4'
+
+services:
+  identitydb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+       - SA_PASSWORD=Synoptek@321
+       - ACCEPT_EULA=Y
+    ports:
+       - "5533:1433"
+    volumes:
+       - identitydbvol:/var/opt/mssql
+    networks:
+       - ecom_network
+
+  identityservice:
+    image: ${DOCKER_REGISTRY-}identityservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    build:
+      context: .
+      dockerfile: IdentityService/Dockerfile
+    ports:
+       - 8001:8081
+       - 8011:8080
+    networks:
+       - ecom_network
+
+  productdb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+       - SA_PASSWORD=Synoptek@321
+       - ACCEPT_EULA=Y
+    ports:
+       - "5534:1433"
+    volumes:
+       - productdbvol:/var/opt/mssql
+    networks:
+       - ecom_network
+
+  productservice:
+    image: ${DOCKER_REGISTRY-}productservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    build:
+      context: .
+      dockerfile: ProductService/Dockerfile
+    ports:
+       - 8002:8081
+       - 8012:8080
+    networks:
+       - ecom_network
+
+  customerdb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+       - SA_PASSWORD=Synoptek@321
+       - ACCEPT_EULA=Y
+    ports:
+       - "5535:1433"
+    volumes:
+       - customerdbvol:/var/opt/mssql
+    networks:
+       - ecom_network
+
+  customerservice:
+    image: ${DOCKER_REGISTRY-}customerservice
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
+    build:
+      context: .
+      dockerfile: CustomerService/Dockerfile
+    ports:
+       - 8003:8081
+       - 8013:8080
+    networks:
+       - ecom_network
+
+volumes:
+  identitydbvol :
+  productdbvol :
+  customerdbvol:
+
+networks:
+    ecom_network:
