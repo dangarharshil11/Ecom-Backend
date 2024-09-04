@@ -55,7 +55,7 @@ namespace ProductService._1.WebAPI.HelperService
             string fromPassword = _configuration["SMTP:Password"] ?? "";
 
             // Read the HTML template from file
-            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\4.Infrastructure\\EmailTemplates\\StockLevelEmailTemplate.html");
+            string templatePath = Path.Combine("/app/4.Infrastructure/EmailTemplates/StockLevelEmailTemplate.html");
             string body = File.ReadAllText(templatePath);
 
             body = body

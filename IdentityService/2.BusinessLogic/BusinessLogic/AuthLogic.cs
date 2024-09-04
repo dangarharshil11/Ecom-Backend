@@ -260,7 +260,7 @@ namespace IdentityService._2.BusinessLogic.BusinessLogic
             string fromPassword = _configuration["SMTP:Password"] ?? "";
 
             // Read the HTML template from file
-            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\4.Infrastructure\\EmailTemplates\\WelcomeUserEmailTemplate.html");
+            string templatePath = Path.Combine("/app/4.Infrastructure/EmailTemplates/WelcomeUserEmailTemplate.html");
             string body = File.ReadAllText(templatePath);
 
             body = body
@@ -299,7 +299,7 @@ namespace IdentityService._2.BusinessLogic.BusinessLogic
             string fromPassword = _configuration["SMTP:Password"] ?? "";
 
             // Read the HTML template from file
-            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\4.Infrastructure\\EmailTemplates\\ForgotPasswordEmailTemplate.html");
+            string templatePath = Path.Combine("/app/4.Infrastructure/EmailTemplates/ForgotPasswordEmailTemplate.html");
             string body = File.ReadAllText(templatePath);
 
             body = body

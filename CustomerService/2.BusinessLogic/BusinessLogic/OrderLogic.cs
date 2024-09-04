@@ -381,7 +381,7 @@ namespace CustomerService._2.BusinessLogic.BusinessLogic
             string fromPassword = _configuration["SMTP:Password"] ?? "";
 
             // Read the HTML template from file
-            string templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\4.Infrastructure\\EmailTemplates\\NewCustomerOrderEmailTemplate.html");
+            string templatePath = Path.Combine("/app/4.Infrastructure/EmailTemplates/NewCustomerOrderEmailTemplate.html");
             string body = System.IO.File.ReadAllText(templatePath);
 
             body = body
