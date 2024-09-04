@@ -57,9 +57,17 @@ builder.Services.AddScoped<BackendApiAuthenticationHttpClientHandler>();
 
 // Configuring MicroServices 
 builder.Services.AddHttpClient("Product", u => u.BaseAddress = new Uri(builder.Configuration["ServiceUrls:productAPI"]))
-    .AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
+    .AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>()
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
+    });
 builder.Services.AddHttpClient("Identity", u => u.BaseAddress = new Uri(builder.Configuration["ServiceUrls:identityAPI"]))
-    .AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
+    .AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>()
+    .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+    {
+        ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
+    });
 
 
 // Authorization for API
